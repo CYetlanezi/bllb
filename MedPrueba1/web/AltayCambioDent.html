@@ -108,13 +108,15 @@ and open the template in the editor.
                     <br>
                     <img src="css/imagen/user4.png" alt=""/>
                     Antigüedad(meses):
-                    <input type="text" name="anti"  size="30" style="margin: 15px;" onkeypress = 'return soloEnteros(event); return v(event)' required> 
+                    <input type="text" name="anti"  require="true" label="Antigüedad" size="30" style="margin: 15px;" onkeypress = 'return soloEnteros(event); return v(event)' required> 
                     <br>
                     <img src="css/imagen/eye.png" alt=""/>
                     Cédula Profesional:
                     <input type="text" name="cedula" require="true" label="Cédula" size="27" style="margin: 15px;"  onkeypress = 'return soloEnteros(event); return v(event)' required> 
                     <br>
-                    <textarea name="horario" rows="8" cols="35" place="Horarios" style="margin: 15px;"></></textarea>
+                    &nbsp;&nbsp;&nbsp;Horario:
+                    <br>
+                    <textarea name="horario" rows="8" cols="35" style="margin: 15px;"></textarea>
                     <br>
                     <center>
                         <input type="submit" value="Alta" name="boton"><input type="reset" value="Limpiar" />

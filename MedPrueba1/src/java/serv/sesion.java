@@ -24,18 +24,13 @@ public class sesion extends HttpServlet
         private final String password = "n0m3l0";
         private final String url = "jdbc:mysql://localhost/";
         private final String driver = "com.mysql.jdbc.Driver";
-        private final String puerto = "8080";
-        //private final String puerto = "39055";
-        //private final String ip = "";
-        private final String ip = "localhost";
         private Connection c = null;
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         String contra = "";
         String minombre = "";       
         String snombre;             
-        String sid;        
-        
+        String sid;
         
         
 
@@ -96,22 +91,22 @@ public class sesion extends HttpServlet
                                         if (r.next())
                                             {
                                                 contra = r.getString("con");
-                                                minombre = r.getString("nombre");                                                
+                                                minombre = r.getString("nombre");
                                                 if (contra.equals(con))
                                                     {
                                                         out.println("<script>");
-                                                            //out.println("alert(\"Bienvenido "+minombre+"\");");
-                                                        out.println("</script>");                                                        
+                                                            out.println("alert(\"Bienvenido "+minombre+"\");");
+                                                        out.println("</script>");
                                                         lasesion.setAttribute("sid", boleta );
                                                         lasesion.setAttribute("snombre", minombre );                                                        
-                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/alumno.html'/>");                                                        
+                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/alumno.html'/>");                                                        
                                                     }
                                                 else
                                                     {
                                                         out.println("<script>");
                                                             out.println("alert(\"¡Contraseña incorrecta!\");");
                                                         out.println("</script>");                                                        
-                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/inicalumno.html'/>");                                                                                                                
+                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:8080/MedPrueba1/inicalumno.html'/>");                                                                                                                
                                                     }
                                             }
                                         else
@@ -119,7 +114,7 @@ public class sesion extends HttpServlet
                                                 out.println("<script>");
                                                     out.println("alert(\"¡EL usuario no existe!\");");
                                                 out.println("</script>");                                                        
-                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/inicalumno.html'/>");                                                                                                                
+                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/inicalumno.html'/>");                                                                                                                
                                             }                                                       
                                     }
                                 catch(SQLException ex)
@@ -144,23 +139,30 @@ public class sesion extends HttpServlet
                                         if (r.next())
                                             {
                                                 contra = r.getString("con");
-                                                minombre = r.getString("nombre");                                                
+                                                minombre = r.getString("nombre");
                                                 if (contra.equals(con))
                                                     {
-                                                        out.println("<script>");
-                                                        //out.println("alert(\"Bienvenido "+minombre+"\");");
-                                                        out.println("</script>");
                                                         lasesion.setAttribute("sid", idm );
-                                                        lasesion.setAttribute("snombre", minombre );                                                        
-                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");                                                        
+                                                        lasesion.setAttribute("snombre", minombre );
+                                                        out.println("<script>");
+                                                            out.println("alert(\"Bienvenido Dentista "+minombre+"\");");
+                                                        out.println("</script>");
+                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");                                                        
                                                     }
+                                                else
+                                                    {
+                                                        out.println("<script>");
+                                                            out.println("alert(\"¡Contraseña incorrecta!\");");
+                                                        out.println("</script>");                                                        
+                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/inientista.html'/>");                                                                                                                
+                                                    }  
                                             }
                                         else
                                             {
                                                 out.println("<script>");
                                                     out.println("alert(\"¡EL usuario no existe!\");");
                                                 out.println("</script>");                                                        
-                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/inientista.html'/>");                                                                                                                
+                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/inientista.html'/>");                                                                                                                
                                             }                                                       
                                     }
                                 catch(SQLException ex)
@@ -177,24 +179,15 @@ public class sesion extends HttpServlet
                                     out.println("alert(\"Hasta luego "+lasesion.getAttribute("snombre")+"\");");
                                 out.println("</script>");                                
                                 lasesion.invalidate();
-                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/index.html'/>");                                                        
+                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/index.html'/>");                                                        
                             }
             }
         
            @Override
-            protected void doGet(HttpServletRequest request,HttpServletResponse response)
-                throws ServletException, IOException
-                    {
-                        processRequest(request, response);
-                        PrintWriter out;
-                        out = response.getWriter();
-                        response.setContentType("text/html");
-                        out.println("<html>");
-                        out.println("<head><title>Mi Primer Servlet </title></head>");
-                        out.println("<body>");
-                        out.println("<h1>Este es mi Primer Servlet</h1>");
-                        out.println("</body></html>");
-                    }
+    protected void doGet(HttpServletRequest request,HttpServletResponse response)
+                throws ServletException, IOException{
+                    processRequest(request, response);
+                }
    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException{
