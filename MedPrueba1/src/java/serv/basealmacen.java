@@ -30,10 +30,6 @@ public class basealmacen extends HttpServlet {
         private final String pass = "n0m3l0";
         private final String url = "jdbc:mysql://localhost/";
         private final String driver = "com.mysql.jdbc.Driver";
-        private final String puerto = "8080";
-        //private final String puerto = "39055";
-        //private final String ip = "";
-        private final String ip = "localhost";
         private Connection c = null;
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
@@ -116,7 +112,7 @@ public class basealmacen extends HttpServlet {
                                                 out.println("<script>");
                                                 out.println("alert(\"Medicamento ya Registrado\");");
                                                 out.println("</script>");
-                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html/>");
+                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html/>");
                                             }
                                         else
                                             {
@@ -141,7 +137,7 @@ public class basealmacen extends HttpServlet {
                                                         out.println("<script>");
                                                         out.println("alert(\"¡Datos Registrados Exitosamente!\");");
                                                         out.println("</script>");
-                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                     }  
                                                 catch (SQLException ex) 
                                                     {
@@ -174,7 +170,7 @@ public class basealmacen extends HttpServlet {
                                                 out.println("<script>");
                                                 out.println("alert(\"Material ya Registrado\");");
                                                 out.println("</script>");
-                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html/>");
+                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html/>");
                                             }
                                         else
                                             {
@@ -192,7 +188,7 @@ public class basealmacen extends HttpServlet {
                                                         out.println("<script>");
                                                         out.println("alert(\"¡Datos Registrados Exitosamente!\");");
                                                         out.println("</script>");
-                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                     }  
                                                 catch (SQLException ex) 
                                                     {
@@ -249,7 +245,7 @@ public class basealmacen extends HttpServlet {
                                                                         out.println("<tbody>");
                                                                         out.println("<tr>");
                                                                         out.println("<th>Id Almacen</th>");
-                                                                        out.println("<td><input type = 'text' name = 'idalma' value = '"+idalma+"' maxlength = '20' onkeypress = 'return soloLetras(event); return antiTrolls(event)' required></td>");
+                                                                        out.println("<td><input type = 'text' name = 'idalma' value = '"+idalma+"' maxlength = '20' onkeypress = 'return soloEnteros(event); return antiTrolls(event)' required></td>");
                                                                         out.println("</tr>");
                                                                         out.println("<tr>");
                                                                         out.println("<th>Nombre del Medicamento</th>");
@@ -285,11 +281,11 @@ public class basealmacen extends HttpServlet {
                                                                         out.println("</tr>");
                                                                         out.println("<tr>");
                                                                         out.println("<th>Caducidad</th>");
-                                                                        out.println("<td><input type = 'text' name = 'cadu' value = '"+cadu+"' maxlength = '20' onkeypress = 'return soloLetras(event); return antiTrolls(event)' required></td>");
+                                                                        out.println("<td><input type = 'text' name = 'cadu' value = '"+cadu+"' maxlength = '20' onkeypress = 'return antiTrolls(event)' required></td>");
                                                                         out.println("</tr>");
                                                                         out.println("<tr>");
                                                                         out.println("<th>Cantidad</th>");
-                                                                        out.println("<td><input type = 'text' name = 'cant' value = '"+cant+"' maxlength = '20' onkeypress = 'return soloLetras(event); return antiTrolls(event)' required></td>");
+                                                                        out.println("<td><input type = 'text' name = 'cant' value = '"+cant+"' maxlength = '20' onkeypress = 'return soloEnteros(event); return antiTrolls(event)' required></td>");
                                                                         out.println("</tr>");
                                                                         out.println("<tr>");
                                                                         out.println("<th>Tipo Canntidad</th>");
@@ -358,13 +354,12 @@ public class basealmacen extends HttpServlet {
                                                                         out.println("</head>");
                                                                         out.println("<div class=\"component\">");
                                                                                 
-                                                                        
-                                                                        out.println("<form action = 'basealmacen' method = 'post'>");
+                                                                        out.println("<form action='basealmacen' method = 'post'>");
                                                                         out.println("<table>");
                                                                         out.println("<tbody>");
                                                                         out.println("<tr>");
                                                                         out.println("<th>Id Almacen</th>");
-                                                                        out.println("<td><input type = 'text' name = 'idalma' value = '"+idalma+"' maxlength = '20' onkeypress = 'return soloLetras(event); return antiTrolls(event)' required></td>");
+                                                                        out.println("<td><input type = 'text' name = 'idalma' value = '"+idalma+"' maxlength = '20' onkeypress = 'return soloEnteros(event); return antiTrolls(event)' required></td>");
                                                                         out.println("</tr>");
                                                                         out.println("<tr>");
                                                                         out.println("<th>Nombre del Material</th>");
@@ -380,13 +375,13 @@ public class basealmacen extends HttpServlet {
                                                                         out.println("</tr>");
                                                                         out.println("<tr>");
                                                                         out.println("<th>Cantidad</th>");
-                                                                        out.println("<td><input type = 'text' name = 'cant' value = '"+cant+"' maxlength = '20' onkeypress = 'return soloLetras(event); return antiTrolls(event)' required></td>");
+                                                                        out.println("<td><input type = 'text' name = 'cant' value = '"+cant+"' maxlength = '20' onkeypress = 'return soloEnteros(event); return antiTrolls(event)' required></td>");
                                                                         out.println("</tr>");
                                                                         out.println("</tbody>");
                                                                         out.println("</table>");
                                                                         out.println("<br>");
                                                                         out.println("<center>");
-                                                                        out.println("<input type=\"submit\" name=\"boton\" value=\"Actualizar Material\">");
+                                                                        out.println("<input type ='submit' name ='boton' value='Actualizar Material'>");
                                                                         out.println("</center>");
                                                                         out.println("</form>");
                                                                         out.println("</div>");
@@ -408,7 +403,7 @@ public class basealmacen extends HttpServlet {
                                                                         out.println("<script>");
                                                                         out.println("alert(\"¡No Registrado en Almacen!\");");
                                                                         out.println("</script>"); 
-                                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                                     }
                                                             
                                                             }
@@ -446,7 +441,7 @@ public class basealmacen extends HttpServlet {
                                                                 out.println("<script>");
                                                                 out.println("alert(\"¡Datos dados de baja Exitosamente!\");");
                                                                 out.println("</script>");
-                                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                             }  
                                                         catch (SQLException ex) 
                                                             {
@@ -477,7 +472,7 @@ public class basealmacen extends HttpServlet {
                                                                         out.println("<script>");
                                                                         out.println("alert(\"¡Datos dados de baja Exitosamente!\");");
                                                                         out.println("</script>");
-                                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                                     }  
                                                                 catch (SQLException ex) 
                                                                     {
@@ -488,7 +483,7 @@ public class basealmacen extends HttpServlet {
                                                                 out.println("<script>");
                                                                 out.println("alert(\"No registrado en Almacen\");");
                                                                 out.println("</script>");
-                                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                             
                                                         }
                                                     }
@@ -668,7 +663,7 @@ public class basealmacen extends HttpServlet {
                                                                         out.println("<script>");
                                                                         out.println("alert(\"No registrado\");");
                                                                         out.println("</script>");
-                                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                                                  
                                                                         }
                                                                     }
@@ -713,7 +708,7 @@ public class basealmacen extends HttpServlet {
                                                 out.println("<script>");
                                                 out.println("alert(\"Datos Modificados Exitosamente\");");
                                                 out.println("</script>");
-                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                }
                                         catch (SQLException ex) 
                                              {
@@ -727,10 +722,11 @@ public class basealmacen extends HttpServlet {
                                         String marca = request.getParameter("marca");
                                         String uso = request.getParameter("uso");
                                         String cant = request.getParameter("cant");
+                                        
                                         try
                                              {
-                                                String query2 = "update material set nombrem = ?, marca = ?, uso = ?, cant = ?, where idalma = ?";
-                                                ps2 = c.prepareStatement(query2);
+                                                String query = "update material set nombrem = ?, marca = ?, uso = ?, cant = ? where idalma = ?";
+                                                ps2 = c.prepareStatement(query);
                                                 ps2.setString(1,nombrem);
                                                 ps2.setString(2,marca);
                                                 ps2.setString(3,uso);
@@ -740,16 +736,10 @@ public class basealmacen extends HttpServlet {
                                                 out.println("<script>");
                                                 out.println("alert(\"Datos Modificados Exitosamente\");");
                                                 out.println("</script>");
-                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:8080/MedPrueba1/dentista.html'/>");
+                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                }
                                         catch (SQLException ex) 
                                              {
-                                                 
-                                                 out.println("<script>");
-                                                        out.println("alert(\"Baka\");");
-                                                out.println("</script>");
-                                                out.println(idalma);
-                                                out.println(uso);
                                                 Logger.getLogger(basealmacen.class.getName()).log(Level.SEVERE, null, ex);
                                              }
                                    }

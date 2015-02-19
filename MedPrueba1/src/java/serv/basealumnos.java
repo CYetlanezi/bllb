@@ -26,10 +26,6 @@ public class basealumnos extends HttpServlet {
         private final String pass = "n0m3l0";
         private final String url = "jdbc:mysql://localhost/";
         private final String driver = "com.mysql.jdbc.Driver";
-        private final String puerto = "8080";
-        //private final String puerto = "39055";
-        //private final String ip = "";
-        private final String ip = "localhost";
         private Connection c = null;
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
@@ -110,7 +106,7 @@ public class basealumnos extends HttpServlet {
                                                 out.println("<script>");
                                                 out.println("alert(\"Alumno ya Registrado\");");
                                                 out.println("</script>");
-                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html/>");
+                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:8080/MedPrueba1/dentista.html/>");
                                             }
                                         else
                                             {
@@ -134,7 +130,7 @@ public class basealumnos extends HttpServlet {
                                                         out.println("<script>");
                                                         out.println("alert(\"¡Datos Registrados Exitosamente!\");");
                                                         out.println("</script>");
-                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                     }  
                                                 catch (SQLException ex) 
                                                     {
@@ -216,14 +212,14 @@ public class basealumnos extends HttpServlet {
                                                                         out.println("<th>Género</th>");
                                                                         out.println("<td>");
                                                                         out.println("<select name = 'genero'>");
-                                                                        if (genero.equals("femenino") || genero.equals("Femenino"))
+                                                                        if (genero.equals("femenino"))
                                                                             {
                                                                                 out.println("<option value = 'femenino' selected>Femenino</option>");
                                                                                 out.println("<option value = 'masculino'>Masculino</option>");
                                                                             }
                                                                         else
                                                                             {
-                                                                                if (genero.equals("masculino") || genero.equals("Masculino"))
+                                                                                if (genero.equals("masculino"))
                                                                                     {
                                                                                         out.println("<option value = 'femenino'>Femenino</option>");
                                                                                         out.println("<option value = 'masculino' selected>Masculino</option>");
@@ -315,7 +311,7 @@ public class basealumnos extends HttpServlet {
                                                                 out.println("<script>");
                                                                 out.println("alert(\"¡Datos dados de baja Exitosamente!\");");
                                                                 out.println("</script>");
-                                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                             }  
                                                         catch (SQLException ex) 
                                                             {
@@ -327,7 +323,7 @@ public class basealumnos extends HttpServlet {
                                                         out.println("<script>");
                                                         out.println("alert(\"Número de boleta no registrado\");");
                                                         out.println("</script>");
-                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                     }
                                             }
                                         catch (SQLException ex) 
@@ -431,7 +427,7 @@ public class basealumnos extends HttpServlet {
                                                                         out.println("<script>");
                                                                         out.println("alert(\"Número de boleta no registrado\");");
                                                                         out.println("</script>");
-                                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                                        out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                                     }
                                                             }
                                                         catch (SQLException ex) 
@@ -472,7 +468,7 @@ public class basealumnos extends HttpServlet {
                                                 out.println("<script>");
                                                 out.println("alert(\"Datos Modificados Exitosamente\");");
                                                 out.println("</script>");
-                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://"+ip+":"+puerto+"/MedPrueba1/dentista.html'/>");
+                                                out.print("<META HTTP-EQUIV='REFRESH'" + "CONTENT='.0000001;URL=http://localhost:39055/MedPrueba1/dentista.html'/>");
                                                }
                                         catch (SQLException ex) 
                                              {
